@@ -2,4 +2,7 @@
     <string name="app_name">Related</string>
     <string name="the_list_of_users_is_as_follows">The list of users is as follows</string>
     <string name="user_related">user related</string>
+    <string name="please_select_your_app">please select your app</string>
+    <string name="related_app">related app</string>
+    <string name="ruler_app">ruler app</string>
 </resources>
