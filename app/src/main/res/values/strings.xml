@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Related</string>
+    <string name="the_list_of_users_is_as_follows">The list of users is as follows</string>
+    <string name="user_related">user related</string>
 </resources>

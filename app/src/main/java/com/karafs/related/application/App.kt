@@ -2,10 +2,7 @@ package com.karafs.related.application
 
 import android.app.Application
 import com.karafs.related.BuildConfig
-import com.karafs.related.di.networkModule
-import com.karafs.related.di.repositoryModule
-import com.karafs.related.di.restModule
-import com.karafs.related.di.viewModelModule
+import com.karafs.related.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -27,7 +24,7 @@ class App : Application() {
             androidLogger(Level.DEBUG)
             modules(
                 listOf(
-                    viewModelModule, networkModule, restModule, repositoryModule
+                    viewModelModule, networkModule, restModule, repositoryModule, adapterModule
                 )
             )
         }
