@@ -1,4 +1,4 @@
-package com.karafs.related.ui
+package com.karafs.related.ui.main
 
 import com.karafs.related.R
 import com.karafs.related.base.BaseActivity
