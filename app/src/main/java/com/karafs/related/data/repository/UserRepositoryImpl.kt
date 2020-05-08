@@ -20,4 +20,24 @@ class UserRepositoryImpl(
     }
 
     override fun getUsers(): LiveData<List<User>> = userDao.getUser()
+
+    override suspend fun getRelatedUsers(): String {
+        val sb = StringBuilder()
+        userDao.getUsers().forEach { user ->
+
+            val relatedUsers = userDao.getAllRelatedUsersByLastName(user.id, user.lastName)
+            if (relatedUsers.isEmpty())
+                sb.append("${user.firstName} is Related to no one ")
+            else {
+                sb.append("${user.firstName} is Related to ")
+                relatedUsers.forEach { relatedUser ->
+                    sb.append("${relatedUser.firstName}-")
+                }
+                sb.setLength(sb.length - 1)
+            }
+
+            sb.append("\n")
+        }
+        return sb.toString()
+    }
 }

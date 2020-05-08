@@ -9,4 +9,6 @@ interface UserRepository {
     suspend fun getUserFromNetwork(): Result<List<User>>
 
     fun getUsers(): LiveData<List<User>>
+
+    suspend fun getRelatedUsers(): String
 }

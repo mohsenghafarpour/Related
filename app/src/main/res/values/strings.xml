@@ -5,4 +5,10 @@
     <string name="please_select_your_app">please select your app</string>
     <string name="related_app">related app</string>
     <string name="ruler_app">ruler app</string>
+    <string name="cm">سانتی متر</string>
+    <string name="inch">اینچ</string>
+    <string name="vertical">عمودی</string>
+    <string name="horizontal">افقی</string>
+    <string name="related_is">related is :</string>
+
 </resources>
