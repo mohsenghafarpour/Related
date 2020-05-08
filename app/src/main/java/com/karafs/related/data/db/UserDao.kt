@@ -8,15 +8,29 @@ import androidx.room.Query
 import com.karafs.related.data.User
 
 @Dao
-interface UserDao {
+abstract class UserDao {
 
     @Query("SELECT * FROM user")
-    fun getUser(): LiveData<List<User>>
+    abstract fun getUser(): LiveData<List<User>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun upsertUser(users: List<User>)
+    abstract suspend fun upsertUser(users: List<User>)
 
     @Query("DELETE FROM user")
-    suspend fun clearUser()
+    abstract suspend fun clearUser()
+
+    @Query("SELECT * FROM user")
+    abstract suspend fun getUsers(): List<User>
+
+    @Query("SELECT * FROM user WHERE lastName LIKE '%' || :lName || '%' AND id != :userId")
+    abstract suspend fun getRelatedUsersByLastName(userId: Int, lName: String): List<User>
+
+    suspend fun getAllRelatedUsersByLastName(userId: Int, lName: String): List<User> {
+        val users = mutableListOf<User>()
+        lName.split("-").forEach {
+            users.addAll(getRelatedUsersByLastName(userId, it))
+        }
+        return users
+    }
 
 }
